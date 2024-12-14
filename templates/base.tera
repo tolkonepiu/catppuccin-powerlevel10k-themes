@@ -185,7 +185,7 @@ whiskers:
   # Add an empty line before each prompt.
   typeset -g POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
-  {% if variant == "classic" or variant == "rainbow" %}
+  {% if variant in ["classic", "rainbow"] %}
   # Connect left prompt lines with these symbols.
   typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX='%F{{ "{" }}#{{ surface1.hex }}{{ "}" }}╭─'
   typeset -g POWERLEVEL9K_MULTILINE_NEWLINE_PROMPT_PREFIX='%F{{ "{" }}#{{ surface1.hex }}{{ "}" }}├─'
@@ -214,7 +214,7 @@ whiskers:
   # if using this. You might also like POWERLEVEL9K_PROMPT_ADD_NEWLINE=false for more compact
   # prompt.
   typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_CHAR='·'
-  {% if variant == "classic" or variant == "rainbow" %}
+  {% if variant in ["classic", "rainbow"] %}
   typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_BACKGROUND=
   typeset -g POWERLEVEL9K_MULTILINE_NEWLINE_PROMPT_GAP_BACKGROUND=
   {% endif %}
@@ -235,7 +235,7 @@ whiskers:
     {% endraw %}
   fi
 
-  {% if variant == "classic" or variant == "rainbow" %}
+  {% if variant in ["classic", "rainbow"] %}
   # Default background color.
   typeset -g POWERLEVEL9K_BACKGROUND=$P10K_COLOR_SURFACE0
   # Separator between same-color segments on the left.
@@ -273,7 +273,7 @@ whiskers:
   # typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='⭐'
 
   ################################[ prompt_char: prompt symbol ]################################
-  {% if variant == "classic" or variant == "rainbow" %}
+  {% if variant in ["classic", "rainbow"] %}
   # Transparent background.
   typeset -g POWERLEVEL9K_PROMPT_CHAR_BACKGROUND=
   {% endif %}
@@ -294,7 +294,7 @@ whiskers:
   typeset -g POWERLEVEL9K_PROMPT_CHAR_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL=''
   # No line introducer if prompt_char is the first segment.
   typeset -g POWERLEVEL9K_PROMPT_CHAR_LEFT_PROMPT_FIRST_SEGMENT_START_SYMBOL=
-  {% if variant == "classic" or variant == "rainbow" %}
+  {% if variant in ["classic", "rainbow"] %}
   # No surrounding whitespace.
   typeset -g POWERLEVEL9K_PROMPT_CHAR_LEFT_{LEFT,RIGHT}_WHITESPACE=
   {% endif %}
@@ -603,7 +603,7 @@ whiskers:
   typeset -g POWERLEVEL9K_VCS_DISABLE_GITSTATUS_FORMATTING=true
   # Install our own Git status formatter.
   typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='${$((my_git_formatter(1)))+${my_git_format}}'
-  {% if variant == "lean" or variant == "classic" %}
+  {% if variant in ["lean", "classic"] %}
   typeset -g POWERLEVEL9K_VCS_LOADING_CONTENT_EXPANSION='${$((my_git_formatter(0)))+${my_git_format}}'
   {% endif %}
   # Enable counters for staged, unstaged, etc.
@@ -645,7 +645,7 @@ whiskers:
 
   # Status on success. No content, just an icon. No need to show it if prompt_char is enabled as
   # it will signify success by turning green.
-  {% if variant == "classic" or variant == "rainbow" %}
+  {% if variant in ["classic", "rainbow"] %}
   typeset -g POWERLEVEL9K_STATUS_OK=true
   {% else %}
   typeset -g POWERLEVEL9K_STATUS_OK=false
@@ -671,7 +671,7 @@ whiskers:
 
   # Status when it's just an error code (e.g., '1'). No need to show it if prompt_char is enabled as
   # it will signify error by turning red.
-  {% if variant == "classic" or variant == "rainbow" %}
+  {% if variant in ["classic", "rainbow"] %}
   typeset -g POWERLEVEL9K_STATUS_ERROR=true
   {% else %}
   typeset -g POWERLEVEL9K_STATUS_ERROR=false

@@ -207,13 +207,9 @@
     # Add a space between the filler and the start of right prompt.
     typeset -g POWERLEVEL9K_RIGHT_PROMPT_FIRST_SEGMENT_START_SYMBOL=' '
     # Start filler from the edge of the screen if there are no left segments on the first line.
-    
     typeset -g POWERLEVEL9K_EMPTY_LINE_LEFT_PROMPT_FIRST_SEGMENT_END_SYMBOL='%{%}'
-    
     # End filler on the edge of the screen if there are no right segments on the first line.
-    
     typeset -g POWERLEVEL9K_EMPTY_LINE_RIGHT_PROMPT_FIRST_SEGMENT_START_SYMBOL='%{%}'
-    
   fi
 
   # Default background color.
@@ -1814,9 +1810,7 @@
   typeset -g POWERLEVEL9K_TIME_BACKGROUND=$P10K_COLOR_PINK
   typeset -g POWERLEVEL9K_TIME_FOREGROUND=$P10K_COLOR_CRUST
   # Format for the current time: 09:51:02. See `man 3 strftime`.
-  
   typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S}'
-  
   # If set to true, time will update when you hit enter. This way prompts for the past
   # commands will contain the start times of their commands as opposed to the default
   # behavior where they contain the end times of their preceding commands.
@@ -1893,7 +1887,5 @@
 # Tell `p10k configure` which file it should overwrite.
 typeset -g POWERLEVEL9K_CONFIG_FILE=${${(%):-%x}:a}
 
-
 (( ${#p10k_config_opts} )) && setopt ${p10k_config_opts[@]}
 'builtin' 'unset' 'p10k_config_opts'
-

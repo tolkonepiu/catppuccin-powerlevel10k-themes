@@ -9,11 +9,11 @@
 
 ## Available Themes
 
-A collection of Powerlevel10k themes designed for a beautiful and functional terminal experience.
+Below is a list of available themes, which can be found in the [themes folder](./themes).
 
 ### Lean
 
-Below is a list of available themes, which can be found in the [themes folder](./themes).
+A compact and focused theme for those who prefer a cleaner and distraction-free interface.
 
 ![Lean Theme Screenshot](./.github/assets/lean.png)
 
@@ -38,6 +38,7 @@ A vibrant and colorful theme for users who love a playful and expressive look.
 ### Pure
 
 A sleek and elegant design with minimal decorations, inspired by the [Pure prompt](https://github.com/sindresorhus/pure). Ideal for a modern and refined look.
+
 
 ![Pure Theme Screenshot](./.github/assets/pure.png)
 

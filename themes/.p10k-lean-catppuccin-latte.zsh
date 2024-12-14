@@ -152,14 +152,12 @@
   # icon overlap when using non-monospace fonts. When set to `none`, spaces are not added.
   typeset -g POWERLEVEL9K_ICON_PADDING=none
 
-  
   # Basic style options that define the overall look of your prompt. You probably don't want to
   # change them.
   typeset -g POWERLEVEL9K_BACKGROUND=                            # transparent background
   typeset -g POWERLEVEL9K_{LEFT,RIGHT}_{LEFT,RIGHT}_WHITESPACE=  # no surrounding whitespace
   typeset -g POWERLEVEL9K_{LEFT,RIGHT}_SUBSEGMENT_SEPARATOR=' '  # separate segments with a space
   typeset -g POWERLEVEL9K_{LEFT,RIGHT}_SEGMENT_SEPARATOR=        # no end-of-line symbol
-  
 
   # When set to true, icons appear before content on both sides of the prompt. When set
   # to false, icons go after content. If empty or not set, icons go before content in the left
@@ -220,9 +218,7 @@
 
   #################################[ os_icon: os identifier ]##################################
   # OS identifier color.
-  
   typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=$P10K_COLOR_TEXT
-  
   # Custom icon.
   # typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='⭐'
 
@@ -249,9 +245,7 @@
 
   ##################################[ dir: current directory ]##################################
   # Default current directory color.
-  
   typeset -g POWERLEVEL9K_DIR_FOREGROUND=$P10K_COLOR_LAVENDER
-  
   # If directory is too long, shorten some of its segments to the shortest possible unique
   # prefix. The shortened directory can be tab-completed to the original.
   typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
@@ -261,9 +255,7 @@
   typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND=$P10K_COLOR_SUBTEXT1
   # Color of the anchor directory segments. Anchor segments are never shortened. The first
   # segment is always an anchor.
-  
   typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=$P10K_COLOR_LAVENDER
-  
   # Display anchor directory segments in bold.
   typeset -g POWERLEVEL9K_DIR_ANCHOR_BOLD=true
   # Don't shorten directories that contain any of these files. They are anchors.
@@ -415,7 +407,6 @@
       return
     fi
     
-    
     if (( $1 )); then
       # Styling for up-to-date Git status.
       local       meta='%F{#8839ef}'     # default foreground
@@ -431,7 +422,6 @@
       local  untracked='%F{#7c7f93}'  # grey foreground
       local conflicted='%F{#7c7f93}'  # grey foreground
     fi
-    
 
     local res
 
@@ -531,24 +521,18 @@
   typeset -g POWERLEVEL9K_VCS_DISABLE_GITSTATUS_FORMATTING=true
   # Install our own Git status formatter.
   typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='${$((my_git_formatter(1)))+${my_git_format}}'
-  
   typeset -g POWERLEVEL9K_VCS_LOADING_CONTENT_EXPANSION='${$((my_git_formatter(0)))+${my_git_format}}'
-  
   # Enable counters for staged, unstaged, etc.
   typeset -g POWERLEVEL9K_VCS_{STAGED,UNSTAGED,UNTRACKED,CONFLICTED,COMMITS_AHEAD,COMMITS_BEHIND}_MAX_NUM=-1
 
   
   # Icon color.
-  
   typeset -g POWERLEVEL9K_VCS_VISUAL_IDENTIFIER_COLOR=$P10K_COLOR_MAUVE
   typeset -g POWERLEVEL9K_VCS_LOADING_VISUAL_IDENTIFIER_COLOR=$P10K_COLOR_MAUVE
-  
   # Custom icon.
   # typeset -g POWERLEVEL9K_VCS_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # Custom prefix.
-  
   typeset -g POWERLEVEL9K_VCS_PREFIX='%F{#5c5f77}on '
-  
 
   # Show status of repositories of these types. You can add svn and/or hg if you are
   # using them. If you do, your prompt may become slow even when your current directory
@@ -568,37 +552,25 @@
 
   # Status on success. No content, just an icon. No need to show it if prompt_char is enabled as
   # it will signify success by turning green.
-  
   typeset -g POWERLEVEL9K_STATUS_OK=false
-  
-  
   typeset -g POWERLEVEL9K_STATUS_OK_FOREGROUND=$P10K_COLOR_GREEN
-  
   typeset -g POWERLEVEL9K_STATUS_OK_VISUAL_IDENTIFIER_EXPANSION='✔'
 
   # Status when some part of a pipe command fails but the overall exit status is zero. It may look
   # like this: 1|0.
   typeset -g POWERLEVEL9K_STATUS_OK_PIPE=true
-  
   typeset -g POWERLEVEL9K_STATUS_OK_PIPE_FOREGROUND=$P10K_COLOR_GREEN
-  
   typeset -g POWERLEVEL9K_STATUS_OK_PIPE_VISUAL_IDENTIFIER_EXPANSION='✔'
 
   # Status when it's just an error code (e.g., '1'). No need to show it if prompt_char is enabled as
   # it will signify error by turning red.
-  
   typeset -g POWERLEVEL9K_STATUS_ERROR=false
-  
-  
   typeset -g POWERLEVEL9K_STATUS_ERROR_FOREGROUND=$P10K_COLOR_MAROON
-  
   typeset -g POWERLEVEL9K_STATUS_ERROR_VISUAL_IDENTIFIER_EXPANSION='✘'
 
   # Status when the last command was terminated by a signal.
   typeset -g POWERLEVEL9K_STATUS_ERROR_SIGNAL=true
-  
   typeset -g POWERLEVEL9K_STATUS_ERROR_SIGNAL_FOREGROUND=$P10K_COLOR_MAROON
-  
   # Use terse signal names: "INT" instead of "SIGINT(2)".
   typeset -g POWERLEVEL9K_STATUS_VERBOSE_SIGNAME=false
   typeset -g POWERLEVEL9K_STATUS_ERROR_SIGNAL_VISUAL_IDENTIFIER_EXPANSION='✘'
@@ -606,9 +578,7 @@
   # Status when some part of a pipe command fails and the overall exit status is also non-zero.
   # It may look like this: 1|0.
   typeset -g POWERLEVEL9K_STATUS_ERROR_PIPE=true
-  
   typeset -g POWERLEVEL9K_STATUS_ERROR_PIPE_FOREGROUND=$P10K_COLOR_MAROON
-  
   typeset -g POWERLEVEL9K_STATUS_ERROR_PIPE_VISUAL_IDENTIFIER_EXPANSION='✘'
 
   ###################[ command_execution_time: duration of the last command ]###################
@@ -623,17 +593,13 @@
   # Custom icon.
   # typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # Custom prefix.
-  
   typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_PREFIX='%F{#5c5f77}took '
-  
 
   #######################[ background_jobs: presence of background jobs ]#######################
   # Don't show the number of background jobs.
   typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VERBOSE=false
   # Background jobs color.
-  
   typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND=$P10K_COLOR_YELLOW
-  
   # Custom icon.
   # typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
@@ -855,11 +821,9 @@
 
   ##################################[ disk_usage: disk usage ]##################################
   # Colors for different levels of disk usage.
-  
   typeset -g POWERLEVEL9K_DISK_USAGE_NORMAL_FOREGROUND=$P10K_COLOR_GREEN
   typeset -g POWERLEVEL9K_DISK_USAGE_WARNING_FOREGROUND=$P10K_COLOR_YELLOW
   typeset -g POWERLEVEL9K_DISK_USAGE_CRITICAL_FOREGROUND=$P10K_COLOR_RED
-  
   # Thresholds for different levels of disk usage (percentage points).
   typeset -g POWERLEVEL9K_DISK_USAGE_WARNING_LEVEL=90
   typeset -g POWERLEVEL9K_DISK_USAGE_CRITICAL_LEVEL=95
@@ -886,31 +850,25 @@
 
   ######################################[ ram: free RAM ]#######################################
   # RAM color.
-  
   typeset -g POWERLEVEL9K_RAM_FOREGROUND=$P10K_COLOR_PEACH
-  
   # Custom icon.
   # typeset -g POWERLEVEL9K_RAM_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   #####################################[ swap: used swap ]######################################
   # Swap color.
-  
   typeset -g POWERLEVEL9K_SWAP_FOREGROUND=$P10K_COLOR_PINK
-  
   # Custom icon.
   # typeset -g POWERLEVEL9K_SWAP_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   ######################################[ load: CPU load ]######################################
   # Show average CPU load over this many last minutes. Valid values are 1, 5 and 15.
   typeset -g POWERLEVEL9K_LOAD_WHICH=5
-  
   # Load color when load is under 50%.
   typeset -g POWERLEVEL9K_LOAD_NORMAL_FOREGROUND=$P10K_COLOR_GREEN
   # Load color when load is between 50% and 70%.
   typeset -g POWERLEVEL9K_LOAD_WARNING_FOREGROUND=$P10K_COLOR_YELLOW
   # Load color when load is over 70%.
   typeset -g POWERLEVEL9K_LOAD_CRITICAL_FOREGROUND=$P10K_COLOR_RED
-  
   # Custom icon.
   # typeset -g POWERLEVEL9K_LOAD_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
@@ -985,9 +943,7 @@
 
   ################################[ cpu_arch: CPU architecture ]################################
   # CPU architecture color.
-  
   typeset -g POWERLEVEL9K_CPU_ARCH_FOREGROUND=$P10K_COLOR_PEACH
-  
 
   # Hide the segment when on a specific CPU architecture.
   # typeset -g POWERLEVEL9K_CPU_ARCH_X86_64_CONTENT_EXPANSION=
@@ -998,11 +954,11 @@
 
   ##################################[ context: user@hostname ]##################################
   # Context color when running with privileges.
-  typeset -g POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND=$P10K_COLOR_YELLOW
+  typeset -g POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND=$P10K_COLOR_PEACH
   # Context color in SSH without privileges.
-  typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_FOREGROUND=$P10K_COLOR_PEACH
+  typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_FOREGROUND=$P10K_COLOR_YELLOW
   # Default context color (no privileges, no SSH).
-  typeset -g POWERLEVEL9K_CONTEXT_FOREGROUND=$P10K_COLOR_PEACH
+  typeset -g POWERLEVEL9K_CONTEXT_FOREGROUND=$P10K_COLOR_YELLOW
 
   # Context format when running with privileges: bold user@hostname.
   typeset -g POWERLEVEL9K_CONTEXT_ROOT_TEMPLATE='%B%n@%m'
@@ -1018,9 +974,7 @@
   # Custom icon.
   # typeset -g POWERLEVEL9K_CONTEXT_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # Custom prefix.
-  
   typeset -g POWERLEVEL9K_CONTEXT_PREFIX='%F{#5c5f77}with '
-  
 
   ###[ virtualenv: python virtual environment (https://docs.python.org/3/library/venv.html) ]###
   # Python virtual environment color.
@@ -1412,9 +1366,7 @@
   POWERLEVEL9K_KUBECONTEXT_DEFAULT_CONTENT_EXPANSION+='${${:-/$P9K_KUBECONTEXT_NAMESPACE}:#/default}'
 
   # Custom prefix.
-  
   typeset -g POWERLEVEL9K_KUBECONTEXT_PREFIX='%F{#5c5f77}at '
-  
 
 
   ################[ terraform: terraform workspace (https://www.terraform.io) ]#################
@@ -1644,15 +1596,11 @@
   # Custom icon.
   # typeset -g POWERLEVEL9K_TOOLBOX_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # Custom prefix.
-  
   typeset -g POWERLEVEL9K_TOOLBOX_PREFIX='%F{#5c5f77}in '
-  
 
   ###############################[ public_ip: public IP address ]###############################
   # Public IP color.
-  
   typeset -g POWERLEVEL9K_PUBLIC_IP_FOREGROUND=$P10K_COLOR_PEACH
-  
   # Custom icon.
   # typeset -g POWERLEVEL9K_PUBLIC_IP_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
@@ -1674,9 +1622,7 @@
 
   ###########[ ip: ip address and bandwidth usage for a specified network interface ]###########
   # IP color.
-  
   typeset -g POWERLEVEL9K_IP_FOREGROUND=$P10K_COLOR_SKY
-  
   # The following parameters are accessible within the expansion:
   #
   #   Parameter             | Meaning
@@ -1705,13 +1651,11 @@
   ################################[ battery: internal battery ]#################################
   # Show battery in red when it's below this level and not connected to power supply.
   typeset -g POWERLEVEL9K_BATTERY_LOW_THRESHOLD=20
-  
   typeset -g POWERLEVEL9K_BATTERY_LOW_FOREGROUND=$P10K_COLOR_RED
   # Show battery in green when it's charging or fully charged.
   typeset -g POWERLEVEL9K_BATTERY_{CHARGING,CHARGED}_FOREGROUND=$P10K_COLOR_GREEN
   # Show battery in yellow when it's discharging.
   typeset -g POWERLEVEL9K_BATTERY_DISCONNECTED_FOREGROUND=$P10K_COLOR_YELLOW
-  
   # Battery pictograms going from low to high level of charge.
   typeset -g POWERLEVEL9K_BATTERY_STAGES='\UF008E\UF007A\UF007B\UF007C\UF007D\UF007E\UF007F\UF0080\UF0081\UF0082\UF0079'
   # Don't show the remaining time to charge/discharge.
@@ -1745,9 +1689,7 @@
 
   ####################################[ time: current time ]####################################
   # Current time color.
-  
   typeset -g POWERLEVEL9K_TIME_FOREGROUND=$P10K_COLOR_PINK
-  
   # Format for the current time: 09:51:02. See `man 3 strftime`.
   
   typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S}'
@@ -1759,9 +1701,7 @@
   # Custom icon.
   # typeset -g POWERLEVEL9K_TIME_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # Custom prefix.
-  
   typeset -g POWERLEVEL9K_TIME_PREFIX='%F{#5c5f77}at '
-  
 
   # Example of a user-defined prompt segment. Function prompt_example will be called on every
   # prompt if `example` prompt segment is added to POWERLEVEL9K_LEFT_PROMPT_ELEMENTS or

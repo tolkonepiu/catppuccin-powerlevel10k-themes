@@ -1,0 +1,56 @@
+name: Linters
+
+"on":
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  yamllint:
+    name: yamllint
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⤵️ Check out code
+        uses: actions/checkout@v4
+      - name: 🚀 Run yamllint
+        uses: reviewdog/action-yamllint@v1
+        with:
+          reporter: github-pr-review
+          filter_mode: nofilter
+          fail_on_error: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  markdownlint:
+    name: markdownlint
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⤵️ Check out code
+        uses: actions/checkout@v4
+      - name: 🚀 Run markdownlint
+        uses: reviewdog/action-markdownlint@v0
+        with:
+          reporter: github-pr-review
+          filter_mode: nofilter
+          fail_on_error: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  whiskers:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⤵️ Check out code
+        uses: actions/checkout@v4
+      - name: ⤵️ Setup whiskers
+        uses: catppuccin/setup-whiskers@v1
+        with:
+          whiskers-version: 2.5.1
+      - name: 🚀 Run whiskers
+        run: |
+          find templates/ -name "*.tera" | xargs -I {} whiskers {}
+      - name: 🚀 Suggester / whiskers
+        uses: reviewdog/action-suggester@v1
+        with:
+          tool_name: whiskers
+          filter_mode: nofilter
+          fail_on_error: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}

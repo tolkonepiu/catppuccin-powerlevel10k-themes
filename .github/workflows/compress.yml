@@ -1,0 +1,29 @@
+name: Compress assets
+"on":
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/assets/*"
+jobs:
+  compress:
+    name: calibreapp/image-actions
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⤵️ Checkout repository
+        uses: actions/checkout@v4
+      - name: 🚀 Compress assets
+        id: calibre
+        uses: calibreapp/image-actions@main
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          compressOnly: true
+      - name: 📥 Create new pull request if needed
+        if: steps.calibre.outputs.markdown != ''
+        uses: peter-evans/create-pull-request@v7
+        with:
+          title: Compressed assets
+          branch-suffix: timestamp
+          commit-message: Compressed assets
+          body: ${{ steps.calibre.outputs.markdown }}

@@ -83,9 +83,11 @@ To use Catppuccin Powerlevel10k themes, first install
    repository.
 2. Place the theme file in the directory `${ZDOTDIR:-$HOME}/.p10k.zsh`.
 3. Add the following line to your `.zshrc` file to load the theme:
+
    ```zsh
    [[ ! -f ${ZDOTDIR:-$HOME}/.p10k.zsh ]] || source ${ZDOTDIR:-$HOME}/.p10k.zsh
    ```
+
 4. Restart your terminal or run `source ~/.zshrc` to apply changes.
 
 ---
@@ -107,7 +109,7 @@ antidote bundle tolkonepiu/catppuccin-powerlevel10k-themes
 
 > [!IMPORTANT]
 >
-> Place `tolkonepiu/catppuccin-powerlevel10k-themes` **after** >
+> Place `tolkonepiu/catppuccin-powerlevel10k-themes` after
 > `romkatv/powerlevel10k` to ensure proper theme loading.
 
 ---
@@ -153,8 +155,11 @@ zplug install
 
 ### Theme Initialization and Customization
 
-After installation, initialize your theme and make custom modifications in your
-`.p10k.zsh` file.
+After installation, you can initialize your theme in one of two ways:
+
+#### 1. Direct function call
+
+Initialize your theme and make custom modifications in your `.p10k.zsh` file.
 
 Example:
 
@@ -170,6 +175,22 @@ Make sure to reload your configuration to apply changes:
 
 ```zsh
 source ~/.p10k.zsh
+```
+
+#### 2. Using zstyle configuration (Recommended)
+
+You can configure your theme using zstyle in your `.zshrc` file before loading
+the plugin. This method allows for a more declarative approach to configuration.
+
+Example:
+
+```zsh
+# Set theme and flavor using zstyle
+zstyle ':catppuccin:p10k' 'theme' 'lean'
+zstyle ':catppuccin:p10k' 'flavour' 'mocha'
+
+# Then load the plugin using your plugin manager
+# ...
 ```
 
 ---

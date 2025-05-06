@@ -313,7 +313,11 @@ whiskers:
   # Replace removed segment suffixes with this symbol.
   typeset -g POWERLEVEL9K_SHORTEN_DELIMITER=
   # Color of the shortened directory segments.
+  {% if variant == "rainbow" -%}
+  typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND=$P10K_COLOR_CRUST
+  {%- else -%}
   typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND=$P10K_COLOR_SUBTEXT1
+  {%- endif %}
   # Color of the anchor directory segments. Anchor segments are never shortened. The first
   # segment is always an anchor.
   {% if variant == "rainbow" -%}

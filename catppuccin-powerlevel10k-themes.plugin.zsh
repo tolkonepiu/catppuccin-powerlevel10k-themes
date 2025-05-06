@@ -41,8 +41,7 @@ apply_catppuccin() {
     fi
 }
 
-autoload -Uz zstyle
-
+# Get theme and flavour from zstyle settings
 local _theme _flavour
 if zstyle -s ':catppuccin:p10k' theme _theme &&
    zstyle -s ':catppuccin:p10k' flavour _flavour; then

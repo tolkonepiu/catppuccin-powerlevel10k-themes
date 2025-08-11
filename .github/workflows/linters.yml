@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ⤵️ Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: 🚀 Run yamllint
         uses: reviewdog/action-yamllint@v1
         with:
@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ⤵️ Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: 🚀 Run markdownlint
         uses: reviewdog/action-markdownlint@v0
         with:
@@ -39,7 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ⤵️ Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: ⤵️ Setup whiskers
         uses: catppuccin/setup-whiskers@v2
         with:

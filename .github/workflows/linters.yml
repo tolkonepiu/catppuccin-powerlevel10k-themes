@@ -43,6 +43,7 @@ jobs:
       - name: ⤵️ Setup whiskers
         uses: catppuccin/setup-whiskers@v2
         with:
+          # renovate: datasource=github-releases depName=catppuccin/whiskers
           whiskers-version: 2.5.1
       - name: 🚀 Run whiskers
         run: |

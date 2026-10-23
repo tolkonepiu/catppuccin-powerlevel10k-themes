@@ -18,7 +18,7 @@ jobs:
         with:
           reporter: github-pr-review
           filter_mode: nofilter
-          fail_on_error: true
+          fail_level: error
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
   markdownlint:
@@ -32,7 +32,7 @@ jobs:
         with:
           reporter: github-pr-review
           filter_mode: nofilter
-          fail_on_error: true
+          fail_level: error
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
   whiskers:
@@ -53,5 +53,5 @@ jobs:
         with:
           tool_name: whiskers
           filter_mode: nofilter
-          fail_on_error: true
+          fail_level: error
           github_token: ${{ secrets.GITHUB_TOKEN }}

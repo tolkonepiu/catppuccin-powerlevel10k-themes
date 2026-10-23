@@ -44,7 +44,7 @@ jobs:
         uses: catppuccin/setup-whiskers@v2
         with:
           # renovate: datasource=github-releases depName=catppuccin/whiskers
-          whiskers-version: 2.5.1
+          whiskers-version: 2.9.0
       - name: 🚀 Run whiskers
         run: |
           find templates/ -name "*.tera" | xargs -I {} whiskers {}
